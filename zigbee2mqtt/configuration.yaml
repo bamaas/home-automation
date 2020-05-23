@@ -1,7 +1,9 @@
 homeassistant: true
-permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
-  server: 'mqtt://mqtt'
+  pasword: 25cI!@oppzHlHb28hbiky
+  server: mqtt://mqtt
+  user: hass
+permit_join: true
 serial:
   port: /dev/ttyACM0

@@ -1,0 +1,20 @@
+import yaml
+import os
+
+cwd = os.getcwd()
+
+# Get mqtt_usernamd and mqtt_password from ./home-assistant/secrets.yaml
+with open(cwd + '/home-assistant/secrets.yaml') as secrets:
+    content = yaml.safe_load(secrets)
+    mqtt_username = content['mqtt_username']
+    mqtt_password = content['mqtt_password']
+
+# Add username and password to zigbee2mqtt configuration file
+with open(cwd + '/zigbee2mqtt/configuration.yaml') as secrets:
+    content = yaml.safe_load(secrets)
+    content['mqtt']['user'] = mqtt_username
+    content['mqtt']['pasword'] = mqtt_password
+with open(cwd + '/zigbee2mqtt/configuration.yaml', 'w') as secrets:
+    secrets.write(yaml.dump(content, default_flow_style=False))
+
+os.system(f"sudo bash setup.bash {mqtt_username} {mqtt_password}")

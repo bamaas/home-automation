@@ -3,6 +3,9 @@ import os
 
 cwd = os.getcwd()
 
+if not os.path.exists(cwd + '/home-assistant/secrets.yaml'):
+    raise Exception("Please create './home-assistant/secrets.yaml' file.")
+
 # Get mqtt_usernamd and mqtt_password from ./home-assistant/secrets.yaml
 with open(cwd + '/home-assistant/secrets.yaml') as secrets:
     content = yaml.safe_load(secrets)

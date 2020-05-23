@@ -1,0 +1,73 @@
+version: '3.5'
+
+services:
+  ha:
+    container_name: ha
+    image: homeassistant/home-assistant:stable
+    restart: always
+    volumes:
+      - ./ha:/config
+    environment: 
+      - TZ=Europe/Amsterdam
+    ports:
+      - 8123:8123
+    networks:
+      - home-automation
+    depends_on: 
+      - nodered
+      - mqtt
+      - zigbee2mqtt
+    
+  nodered:
+    container_name: nodered
+    image: nodered/node-red:latest
+    ports:
+      - 1880:1880
+    restart: always
+    user: root
+    volumes:
+      - ./nodered:/data
+    networks:
+      - home-automation
+    depends_on: 
+      - mqtt
+      - zigbee2mqtt
+  
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:latest
+    environment: 
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ./zigbee2mqtt:/app/data
+    devices:
+      - /dev/ttyACM:/dev/ttyACM
+    privileged: true
+    restart: always
+    networks:
+      - home-automation
+    depends_on: 
+     - mqtt
+
+  mqtt:
+    container_name: mqtt
+    image: eclipse-mosquitto:latest
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: always
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto.conf
+      - mqtt_data:/mosquitto/data
+      - mqtt_data:/mosquitto/log
+    networks:
+      - home-automation
+
+volumes:
+  mqtt_data:
+
+networks:
+  home-automation:
+    name: home-automation

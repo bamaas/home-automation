@@ -1,9 +1,10 @@
-version: '3.5'
+version: '3.7'
 
 services:
   ha:
     container_name: home-assistant
     image: homeassistant/home-assistant:stable
+    init: true
     restart: always
     volumes:
       - ./home-assistant:/config
@@ -60,6 +61,7 @@ services:
     restart: always
     volumes:
       - ./mqtt/mosquitto.conf:/mosquitto.conf
+      - ./mqtt/passwd:/passwd
       - mqtt_data:/mosquitto/data
       - mqtt_data:/mosquitto/log
     networks:

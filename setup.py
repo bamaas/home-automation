@@ -12,6 +12,10 @@ with open(cwd + '/home-assistant/secrets.yaml') as secrets:
     mqtt_username = content['mqtt_username']
     mqtt_password = content['mqtt_password']
 
+# Add username and password to mqtt passwd file
+with open(cwd + '/mqtt/passwd', 'w') as passwd:
+    passwd.write(mqtt_username + ':' + mqtt_password)
+
 # Add username and password to zigbee2mqtt configuration file
 with open(cwd + '/zigbee2mqtt/configuration.yaml') as secrets:
     content = yaml.safe_load(secrets)

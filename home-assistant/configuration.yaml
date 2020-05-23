@@ -1,0 +1,55 @@
+#Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  discovery: true
+  broker: mqtt
+  port: 1883
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
+light:
+  platform: limitlessled
+  bridges:
+    - host: 192.168.8.3
+      port: 5987
+      groups:
+      - number: 1
+        type: rgbww
+        name: Gang muur
+      - number: 2
+        type: rgbww
+        name: Gang trapgat
+      - number: 3
+        type: rgbww
+        name: Woonkamer
+      - number: 4
+        type: rgbww
+        name: Hal beneden
+    - host: 192.168.8.4
+      port: 5987
+      groups:
+      - number: 1
+        type: rgbww
+        name: Keuken
+      - number: 2
+        type: rgbww
+        name: Slaapkamer
+      - number: 3
+        type: rgbww
+        name: Toilet

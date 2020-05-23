@@ -2,11 +2,11 @@ version: '3.5'
 
 services:
   ha:
-    container_name: ha
+    container_name: home-assistant
     image: homeassistant/home-assistant:stable
     restart: always
     volumes:
-      - ./ha:/config
+      - ./home-assistant:/config
     environment: 
       - TZ=Europe/Amsterdam
     ports:
@@ -19,14 +19,14 @@ services:
       - zigbee2mqtt
     
   nodered:
-    container_name: nodered
+    container_name: node-red
     image: nodered/node-red:latest
     ports:
       - 1880:1880
     restart: always
     user: root
     volumes:
-      - ./nodered:/data
+      - ./node-red:/data
     networks:
       - home-automation
     depends_on: 

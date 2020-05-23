@@ -1,0 +1,1 @@
+Initializing my Home Automation setup

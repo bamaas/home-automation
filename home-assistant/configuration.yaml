@@ -5,6 +5,19 @@ default_config:
 tts:
   - platform: google_translate
 
+recorder:
+  # Delete events and states older than 2 weeks
+  purge_interval: 1
+  purge_keep_days: 5
+  exclude:
+    domains:
+      - updater
+      - camera
+      - media_player
+      - sun
+      - automation
+      - calendar
+
 mqtt:
   discovery: true
   broker: mqtt
@@ -17,6 +30,12 @@ mqtt:
   will_message:
     topic: 'hass/status'
     payload: 'offline'
+
+panel_iframe:
+  nodered:
+    title: 'Node-Red'
+    url: 'http://192.168.8.43:1880'
+    icon: mdi:wrench
 
 light:
   platform: limitlessled
@@ -36,6 +55,15 @@ light:
       - number: 4
         type: rgbww
         name: Hal beneden
+      - number: 1
+        type: rgbw
+        name: Gang muur (RGB)
+      - number: 2
+        type: rgbw
+        name: Gang trapgat (RGB)
+      - number: 3
+        type: rgbw
+        name: Woonkamer (RGB)
     - host: 192.168.8.4
       port: 5987
       groups:
@@ -48,3 +76,57 @@ light:
       - number: 3
         type: rgbww
         name: Toilet
+      - number: 4
+        type: rgbww
+        name: Unasigned
+      - number: 1
+        type: rgbw
+        name: Keuken (RGB)
+      - number: 2
+        type: rgbw
+        name: Slaapkamer (RGB)
+      - number: 3
+        type: rgbw
+        name: Toilet (RGB)
+
+#Buttons
+input_boolean:
+  notify_music:
+    name: Music
+    initial: off
+    icon: mdi:speaker
+  notify_tv:
+    name: Music
+    initial: off
+    icon: mdi:television
+  notify_game:
+    name: Gaming
+    initial: off
+    icon: mdi:xbox-controller
+  brightness_one:
+    name: 10%
+    initial: off
+    icon: mdi:brightness-3
+  brighess_two:
+    name: 25%
+    initial: off
+    icon: mdi:brightness-4
+  brightness_three:
+    name: 50%
+    initial: off
+    icon: mdi:brightness-5
+  brightness_four:
+    name: 75%
+    initial: off
+    icon: mdi:brightness-6
+  brightness_five:
+    name: 100%
+    initial: off
+    icon: mdi:brightness-7
+
+xiaomi_aqara:
+  discovery_retry: 25
+  gateways:
+    - host: 192.168.8.7
+      mac: !secret xiaomi_mac
+      key: !secret xiaomi_key

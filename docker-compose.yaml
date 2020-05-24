@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  ha:
+  home-assistant:
     container_name: home-assistant
     image: homeassistant/home-assistant:stable
     init: true
@@ -19,7 +19,7 @@ services:
       - mqtt
       - zigbee2mqtt
     
-  nodered:
+  node-red:
     container_name: node-red
     image: nodered/node-red:latest
     ports:

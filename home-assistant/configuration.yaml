@@ -6,8 +6,6 @@ tts:
   - platform: google_translate
 
 recorder:
-  # Delete events and states older than 2 weeks
-  purge_interval: 1
   purge_keep_days: 5
   exclude:
     domains:
@@ -34,7 +32,7 @@ mqtt:
 panel_iframe:
   nodered:
     title: 'Node-Red'
-    url: 'http://192.168.8.43:1880'
+    url: 'http://192.168.8.5:1880'
     icon: mdi:wrench
 
 light:

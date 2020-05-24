@@ -10,10 +10,7 @@ services:
       - ./home-assistant:/config
     environment: 
       - TZ=Europe/Amsterdam
-    ports:
-      - 8123:8123
-    networks:
-      - home-automation
+    network_mode: host
     depends_on: 
       - node-red
       - mqtt

@@ -13,7 +13,7 @@ def create_backup(to_backup, encryption_password):
     stdout = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).communicate()[0].decode()
     # move file to backup folder
     cwd = os.getcwd()
-    path = str(Path(cwd).parent) + f'{backup}'
+    path = str(Path(cwd).parent) + f'/{backup}'
     os.rename(path, cwd + f'/{backup}')
     print(f"Created backup: {backup}")
     print("\n")

@@ -4,7 +4,7 @@ services:
 
   portainer:
     container_name: portainer
-    image: 
+    image: portainer/portainer:latest
     ports: 
       - 8000:8000
       - 9000:9000
@@ -101,6 +101,7 @@ services:
 
 volumes:
   mqtt_data:
+  portainer_data:
 
 # networks:
 #   home-automation:

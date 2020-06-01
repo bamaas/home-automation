@@ -10,6 +10,8 @@ services:
       - 9000:9000
     restart: always
     network_mode: bridge
+    networks:
+      - home-automation
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data portainer/portainer
@@ -28,6 +30,8 @@ services:
      - 80:80
     volumes:
      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - home-automation
     depends_on: 
       - home-assistant
       - node-red
@@ -103,6 +107,6 @@ volumes:
   mqtt_data:
   portainer_data:
 
-# networks:
-#   home-automation:
-#     name: home-automation
+networks:
+  home-automation:
+    name: home-automation

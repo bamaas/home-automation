@@ -2,24 +2,6 @@ version: '3.7'
 
 services:
 
-  portainer:
-    container_name: portainer
-    image: portainer/portainer:latest
-    ports: 
-      - 8000:8000
-      - 9000:9000
-    restart: always
-    network_mode: bridge
-    volumes: 
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data portainer/portainer
-    depends_on: 
-      - nginx
-      - home-assistant
-      - node-red
-      - zigbee2mqtt
-      - mqtt
-
   nginx:
     container_name: nginx
     image: nginx:latest
@@ -103,7 +85,6 @@ services:
 
 volumes:
   mqtt_data:
-  portainer_data:
 
 networks:
   home-automation:

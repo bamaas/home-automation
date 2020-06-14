@@ -15,4 +15,4 @@ services:
      - 8080:80
     volumes:
      - HOST_DIR:/srv
-    restart: always
+    restart: unless-stopped

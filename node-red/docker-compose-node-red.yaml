@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+    
+  node-red:
+    container_name: node-red
+    image: nodered/node-red:latest
+    ports:
+      - 1880:1880
+    restart: unless-stopped
+    user: root
+    environment:
+      - TZ=Europe/Amsterdam
+    volumes:
+      - ${PWD}:/data
+    networks:
+      - home-automation
+
+networks:
+  home-automation:
+    name: home-automation

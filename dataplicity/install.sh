@@ -1,0 +1,1 @@
+curl -s https://www.dataplicity.com/dmq5b69w.py | sudo python3

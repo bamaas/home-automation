@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:latest
+    environment: 
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ${PWD}:/app/data
+    devices:
+      - /dev/ttyACM:/dev/ttyACM
+    privileged: true
+    restart: unless-stopped
+
+
+networks:
+  home-automation:
+    name: home-automation

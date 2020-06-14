@@ -1,0 +1,22 @@
+▶ curl -s https://www.dataplicity.com/dmq5b69w.py | sudo python3
+    ___      _              _ _      _ _
+   /   \__ _| |_ __ _ _ __ | (_) ___(_) |_ _   _
+  / /\ / _` | __/ _` | '_ \| | |/ __| | __| | | |
+ / /_// (_| | || (_| | |_) | | | (__| | |_| |_| |
+/___,' \__,_|\__\__,_| .__/|_|_|\___|_|\__|\__, | v0.4.34
+                     |_|                   |___/
+
+Welcome to the Dataplicity Agent Installer
+
+[[ Step 1 of 4 ]] downloading open source agent
+[[ Step 2 of 4 ]] registering device
+[[ Step 3 of 4 ]] configuring system
+[[ Step 4 of 4 ]] starting agent
+
+Dataplicity agent v0.4.34 is now installed.
+Your device will be online in a few seconds.
+
+Visit the following URL to manage your device:
+ * https://www.dataplicity.com/devices/20f2d877-46af-4ea6-8665-75a6b0a69a03/
+
+Do you need help? https://docs.dataplicity.com/

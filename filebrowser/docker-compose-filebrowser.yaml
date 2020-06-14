@@ -1,0 +1,19 @@
+version: '3.7'
+
+# set username & password & replace HOST_DIR
+
+services:
+
+  filebrowser:
+    container_name: filebrowser
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USERNAME: admin
+        PASSWORD: admin
+    ports:
+     - 8080:80
+    volumes:
+     - HOST_DIR:/srv
+    restart: always

@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Europe/Amsterdam
     volumes:
-      - ${PWD}:/data
+      - ./data:/data
     networks:
       - home-automation
 

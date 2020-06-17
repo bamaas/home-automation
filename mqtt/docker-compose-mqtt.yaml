@@ -10,8 +10,8 @@ services:
       - 9001:9001
     restart: unless-stopped
     volumes:
-      - ./config/mosquitto.conf:/mosquitto.conf
-      - ./config/passwd:/passwd
+      - ./datag/mosquitto.conf:/mosquitto.conf
+      - ./data/passwd:/passwd
       - data:/mosquitto/data
       - data:/mosquitto/log
     networks:

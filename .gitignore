@@ -1,9 +1,11 @@
 secrets.yaml
 backup/config.ini
 env
-
-#zigbee2mqtt
+# zigbee2mqtt
 zigbee2mqtt/data/
-
-#nodered
+!zigbee2mqtt/data/configuration.yaml
+# node-red
 node-red/data/
+# home-assistant
+home-assistant/data/
+!home-assitant/data/configuration.yaml

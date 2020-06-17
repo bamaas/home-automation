@@ -9,7 +9,6 @@ services:
     volumes:
       - /run/udev:/run/udev:ro
       - ./data:/app/data
-      - ./config/configuration.yaml:/app/data/configuration.yaml
     devices:
       - /dev/ttyACM:/dev/ttyACM
     privileged: true

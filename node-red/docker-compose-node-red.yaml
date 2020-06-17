@@ -7,15 +7,14 @@ services:
     image: nodered/node-red:latest
     ports:
       - 1880:1880
-    restart: unless-stopped
+    restart: always
     user: root
     environment:
       - TZ=Europe/Amsterdam
     volumes:
       - ./data:/data
-    networks:
-      - home-automation
 
 networks:
-  home-automation:
-    name: home-automation
+  default:
+    external:
+      name: home-automation

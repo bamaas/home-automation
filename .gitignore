@@ -1,4 +1,7 @@
 secrets.yaml
-# backup
 backup/config.ini
 env
+#zigbee2mqtt
+zigbee2mqtt/database.db
+zigbee2mqtt/log/*
+zigbee2mqtt/state.json

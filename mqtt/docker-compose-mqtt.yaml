@@ -12,14 +12,15 @@ services:
     volumes:
       - ./mosquitto.conf:/mosquitto.conf
       - ./passwd:/passwd
-      - mqtt_data:/mosquitto/data
-      - mqtt_data:/mosquitto/log
+      - data:/mosquitto/data
+      - data:/mosquitto/log
     networks:
-      - home-automation
+      - my-custom-network
 
 volumes:
-  mqtt_data:
+  data:
 
 networks:
-  home-automation:
+  my-custom-network:
     name: home-automation
+    driver: bridge

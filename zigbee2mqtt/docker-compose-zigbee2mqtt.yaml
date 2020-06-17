@@ -8,13 +8,13 @@ services:
       - TZ=Europe/Amsterdam
     volumes:
       - /run/udev:/run/udev:ro
-      - ${PWD}:/app/data
+      - .:/app/data
     devices:
       - /dev/ttyACM:/dev/ttyACM
     privileged: true
     restart: unless-stopped
 
-
 networks:
-  home-automation:
-    name: home-automation
+  default:
+    external:
+      name: home-automation

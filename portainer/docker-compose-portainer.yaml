@@ -6,11 +6,11 @@ services:
     image: portainer/portainer:latest
     ports: 
       - 9000:9000
-    restart: unless-stopped
+    restart: always
     network_mode: bridge
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - data:/data
 
 volumes:
-  portainer_data:
+  data:

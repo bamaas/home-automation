@@ -1,7 +1,5 @@
 version: '3.7'
 
-# set username & password & replace HOST_DIR
-
 services:
   filebrowser:
     container_name: filebrowser
@@ -14,5 +12,5 @@ services:
     ports:
      - 8080:80
     volumes:
-     - HOST_DIR:/srv
-    restart: unless-stopped
+     - /home/bas:/srv
+    restart: always

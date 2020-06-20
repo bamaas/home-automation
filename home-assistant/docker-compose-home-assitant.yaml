@@ -3,7 +3,7 @@ version: '3.7'
 services:
   home-assistant:
     container_name: home-assistant
-    image: homeassistant/home-assistant:stable
+    image: homeassistant/home-assistant:latest
     init: true
     restart: always
     volumes:

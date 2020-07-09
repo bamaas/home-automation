@@ -5,8 +5,8 @@ services:
     container_name: nginx
     image: nginx:latest
     restart: always
+    network_mode: bridge
     ports:
      - 80:80
     volumes:
-     - ./nginx.conf:/etc/nginx/nginx.conf
-     restart: unless-stopped
+     - ./data/nginx.conf:/etc/nginx/nginx.conf

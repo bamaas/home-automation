@@ -13,4 +13,5 @@ services:
      - 8080:80
     volumes:
      - /home/bas:/srv
+    network_mode: bridge
     restart: no

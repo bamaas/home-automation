@@ -10,7 +10,7 @@ RUN apt-get update && \
     curl -fsSL https://filebrowser.xyz/get.sh | bash && \
     apt-get clean
 
-COPY ./.filebrowser.json ./.filebrowser.json
+COPY ./data/.filebrowser.json ./.filebrowser.json
 
 RUN filebrowser config init && \
     filebrowser users add $USERNAME $PASSWORD

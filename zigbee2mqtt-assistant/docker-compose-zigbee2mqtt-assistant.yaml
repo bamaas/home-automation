@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  zigbee2mqtt-assistant:
+    image: carldebilly/zigbee2mqttassistant
+    container_name: zigbee2mqtt-assistant
+    environment:
+      - Z2MA_SETTINGS__MQTTSERVER=mqtt
+      - TZ=Europe/Amsterdam
+    ports:
+      - 8880:80
+    restart: always
+
+networks:
+  default:
+    external:
+      name: home-automation

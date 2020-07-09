@@ -4,7 +4,9 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer:latest
+    command: -H unix:///var/run/docker.sock
     ports: 
+      - 8000:8000
       - 9000:9000
     restart: no
     network_mode: bridge

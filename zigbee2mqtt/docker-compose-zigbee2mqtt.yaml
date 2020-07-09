@@ -12,7 +12,7 @@ services:
     devices:
       - /dev/ttyACM:/dev/ttyACM
     privileged: true
-    restart: no
+    restart: "no"
 
 networks:
   default:

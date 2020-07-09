@@ -5,7 +5,7 @@ services:
     container_name: home-assistant
     image: homeassistant/home-assistant:latest
     init: true
-    restart: always
+    restart: "no"
     volumes:
       - ./data:/config
     environment: 

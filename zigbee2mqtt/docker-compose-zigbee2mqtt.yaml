@@ -8,11 +8,11 @@ services:
       - TZ=Europe/Amsterdam
     volumes:
       - /run/udev:/run/udev:ro
-      - .:/app/data
+      - ./data:/app/data
     devices:
       - /dev/ttyACM:/dev/ttyACM
     privileged: true
-    restart: unless-stopped
+    restart: no
 
 networks:
   default:

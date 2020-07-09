@@ -7,7 +7,7 @@ services:
     image: nodered/node-red:latest
     ports:
       - 1880:1880
-    restart: unless-stopped
+    restart: no
     user: root
     environment:
       - TZ=Europe/Amsterdam

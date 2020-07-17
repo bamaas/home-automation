@@ -8,9 +8,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Amsterdam
-      - PASSWORD=admin #optional
-      - SUDO_PASSWORD=admin #optional
-      - PROXY_DOMAIN=code-server.my.domain #optional
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${PASSWORD}
     volumes:
       - ./data:/config
       - /home/bas/:/mnt/

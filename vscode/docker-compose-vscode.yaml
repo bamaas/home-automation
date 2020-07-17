@@ -13,6 +13,7 @@ services:
       - PROXY_DOMAIN=code-server.my.domain #optional
     volumes:
       - ./data:/config
+      - /home/bas/:/mnt/
     ports:
       - 8443:8443
     restart: "no"

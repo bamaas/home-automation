@@ -8,8 +8,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Amsterdam
-      - PASSWORD=${PASSWORD}
-      - SUDO_PASSWORD=${PASSWORD}
+      - PASSWORD=${PASSWORD}            # set this environment variable
+      - SUDO_PASSWORD=${PASSWORD}       # set this environment variable
     volumes:
       - ./data:/config
       - /home/bas/:/mnt/

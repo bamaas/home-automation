@@ -9,3 +9,7 @@ node-red/data/
 # home-assistant
 home-assistant/data/
 !home-assitant/data/configuration.yaml
+# vscode
+vscode/data/
+vscode/.local/
+vscode/.config/

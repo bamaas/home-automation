@@ -12,7 +12,7 @@ services:
       - SUDO_PASSWORD=admin #optional
       - PROXY_DOMAIN=code-server.my.domain #optional
     volumes:
-      - /home/bas/vscode/:/config
+      - ./:/config
     ports:
       - 8443:8443
     restart: "no"

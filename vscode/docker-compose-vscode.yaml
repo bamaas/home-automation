@@ -3,7 +3,7 @@ version: '3.7'
 services:
   code-server:
     image: linuxserver/code-server
-    container_name: code-server
+    container_name: vscode
     environment:
       - PUID=1000
       - PGID=1000

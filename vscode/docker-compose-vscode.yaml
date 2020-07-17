@@ -8,11 +8,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Amsterdam
-      - PASSWORD=password #optional
-      - SUDO_PASSWORD=password #optional
+      - PASSWORD=admin #optional
+      - SUDO_PASSWORD=admin #optional
       - PROXY_DOMAIN=code-server.my.domain #optional
     volumes:
       - /home/bas/vscode/:/config
     ports:
       - 8443:8443
-    restart: unless-stopped
+    restart: "no"

@@ -15,4 +15,4 @@ services:
       - /home/bas/:/mnt/
     ports:
       - 8443:8443
-    restart: "no"
+    restart: always

@@ -14,33 +14,27 @@ def create_backup(to_backup, encryption_password):
     # move file to backup folder
     cwd = os.getcwd()
     path = str(Path(cwd).parent) + f'/{backup}'
-    os.rename(path, cwd + f'/{backup}')
-    print(f"Created backup: {backup}")
+    #os.rename(path, cwd + '/home-automation/backup/' + f'/{backup}')
+    backup_path = f'/home/bas/home-automation/backup/{backup}'
+    os.rename(f'/home/bas/{backup}', backup_path)
+    print(f"Created backup: {backup_path}")
     print("\n")
-    return backup
+    return backup_path
 
 
-def upload_to_stack(folder, backup, username, password):
+def upload_to_stack(local_path, remote_path, username, password):
     print("Uploading to Stack...")
-    print(folder)
     options = {
      'webdav_hostname': f"https://{username}.stackstorage.com/remote.php/webdav/",
      'webdav_login': username,
      'webdav_password': password,
      'verbose': True
     }
-    remote_path = folder + backup
     client = Client(options)
     client.verify = True
-    client.upload_sync(remote_path=remote_path, local_path=backup)
+    client.upload_sync(remote_path=remote_path, local_path=local_path)
     client.check(remote_path)
     print("Uploaded backup: {}{}".format(options['webdav_hostname'], remote_path))
-    print("\n")
-
-def remove_backup(backup):
-    print(f"Removing local backup...")
-    os.remove(backup)
-    print("Removed: ", backup)
     print("\n")
 
 # Parse config
@@ -53,9 +47,14 @@ stack_folder = config['stack']['folder']
 encryption_password = config['backup']['encryption']
 
 # Script
-backup = create_backup(to_backup, encryption_password)
-upload_to_stack(stack_folder, backup, stack_username, stack_password)
-remove_backup(backup)
+local_path = create_backup(to_backup, encryption_password)
+file_name = local_path.split('/')[-1]
+remote_path = stack_folder + file_name
+upload_to_stack(local_path, remote_path, stack_username, stack_password)
+print(f"Removing local backup...")
+os.remove(local_path)
+print("Removed: ", local_path)
+print("\n")
 print("Done!")
 
 # config.ini example:

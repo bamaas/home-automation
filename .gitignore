@@ -1,6 +1,7 @@
 secrets.yaml
 backup/config.ini
 env
+.vscode
 # zigbee2mqtt
 zigbee2mqtt/data/
 !zigbee2mqtt/data/configuration.yaml

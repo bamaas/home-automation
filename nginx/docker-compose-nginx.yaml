@@ -4,7 +4,7 @@ services:
   nginx:
     container_name: nginx
     image: nginx:latest
-    restart: "no"
+    restart: always
     network_mode: bridge
     ports:
      - 80:80

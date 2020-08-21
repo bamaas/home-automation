@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  home-assistant:
+    container_name: cockpit
+    privileged: true
+    image: cockpit/ws
+    restart: always
+    volumes:
+      - /:/host
+    network_mode: host

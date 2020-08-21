@@ -14,4 +14,4 @@ services:
     volumes:
      - /home/bas:/srv
     network_mode: bridge
-    restart: "no"
+    restart: always

@@ -7,12 +7,12 @@ services:
     environment: 
       - TZ=Europe/Amsterdam
     volumes:
-      - /run/udev:/run/udev:ro
       - ./data:/app/data
+      - /run/udev:/run/udev:ro
     devices:
-      - /dev/ttyACM:/dev/ttyACM
+      - /dev/ttyACM0:/dev/ttyACM0
     privileged: true
-    restart: "no"
+    restart: always
 
 networks:
   default:

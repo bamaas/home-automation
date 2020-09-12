@@ -69,3 +69,17 @@ except Exception as e:
 
 # [encryption]
 # password=
+
+
+# from datetime import datetime
+# resources = client.list(stack_folder)
+# del resources[0]    # the first item is the folder name
+# backups_by_date = []
+# to_remove = []
+# max_backup_count = 40
+# if len(resources) > max_backup_count:
+#     for resource in resources:
+#         backups_by_date.append(datetime.strptime(resource[:-10], '%d-%m-%Y'))
+#     backups_by_date.sort()
+
+

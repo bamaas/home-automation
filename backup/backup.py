@@ -10,7 +10,7 @@ def create_backup(to_backup, encryption_password):
     print("Creating backup...")
     today = datetime.today().strftime('%d-%m-%Y')
     backup = f'{today}-backup.7z'
-    cmd = f"docker run --rm --workdir /data -it -v {to_backup}:/data crazymax/7zip 7za a -tzip -p{encryption_password} -mem=AES256 {backup}"
+    cmd = f"docker run --rm --workdir /data -t -v {to_backup}:/data crazymax/7zip 7za a -tzip -p{encryption_password} -mem=AES256 {backup}"
     stdout = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).communicate()[0].decode()
     # move file to backup folder
     cwd = os.getcwd()

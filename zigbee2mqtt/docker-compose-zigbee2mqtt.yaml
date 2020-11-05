@@ -3,7 +3,7 @@ version: '3.7'
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:latest
+    image: koenkk/zigbee2mqtt:latest-dev
     environment: 
       - TZ=Europe/Amsterdam
     volumes:
@@ -13,6 +13,8 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0
     privileged: true
     restart: always
+    ports:
+      - 8080:8080
 
 networks:
   default:

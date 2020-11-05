@@ -5,8 +5,13 @@ services:
     container_name: nginx
     image: nginx:latest
     restart: always
-    network_mode: bridge
+    # network_mode: bridge
     ports:
      - 80:80
     volumes:
      - ./data/nginx.conf:/etc/nginx/nginx.conf
+
+networks:
+  default:
+    external:
+      name: home-automation

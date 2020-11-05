@@ -16,3 +16,5 @@ vscode/.local/
 vscode/.config/
 # heimdall
 heimdall/data/
+# duplicati
+duplicati/data/

@@ -2,6 +2,7 @@ secrets.yaml
 backup/config.ini
 env
 .vscode
+config.ini
 # zigbee2mqtt
 zigbee2mqtt/data/
 !zigbee2mqtt/data/configuration.yaml
@@ -16,3 +17,5 @@ vscode/.local/
 vscode/.config/
 # heimdall
 heimdall/data/
+# duplicati
+duplicati/data/

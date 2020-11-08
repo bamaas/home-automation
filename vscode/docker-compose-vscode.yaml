@@ -16,3 +16,8 @@ services:
     ports:
       - 8443:8443
     restart: always
+  
+networks:
+  default:
+    external:
+      name: home-automation

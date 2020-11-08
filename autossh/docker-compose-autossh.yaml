@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  ssh-to-lan-endpoint:
+    image: jnovack/autossh
+    container_name: autossh
+    environment:
+      - SSH_HOSTUSER=bamaas
+      - SSH_HOSTNAME=35.208.240.85
+      - SSH_TUNNEL_REMOTE=2222
+      - SSH_TUNNEL_HOST=172.17.0.1   # needs to be the ip address of the docker host
+      - SSH_TUNNEL_LOCAL=8123   # port of home-assistant (so only home assistant is exposed)
+    restart: always
+    volumes:
+      - /home/bas/.ssh/id_rsa:/id_rsa
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+      
+networks:
+  default:
+    external:
+      name: home-automation

@@ -1,4 +1,4 @@
-version: "2.1"
+version: "3.7"
 
 services:
   duplicati:
@@ -15,6 +15,12 @@ services:
     ports:
       - 8200:8200
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8200"]
+      interval: 2m
+      timeout: 15s
+      retries: 3
+      start_period: 10s
   
 networks:
   default:
